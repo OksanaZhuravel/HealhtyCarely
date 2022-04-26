@@ -1,0 +1,10 @@
+.header {
+  width: 100%;
+  background-color: transparent;
+  &__logo {
+    margin: 20px 0 0 0;
+    @media (min-width: 768px) {
+      margin: 5.5px 40px 5.5px 0;
+    }
+  }
+}

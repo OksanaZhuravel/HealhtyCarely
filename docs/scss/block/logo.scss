@@ -1,0 +1,16 @@
+.logo {
+  &__img {
+    width: 150px;
+    height: 30px;
+    display: block;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  @media (min-width: 768px) {
+    &__img {
+      width: 175px;
+      height: 33px;
+    }
+  }
+}

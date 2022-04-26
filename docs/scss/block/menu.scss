@@ -1,0 +1,32 @@
+.menu {
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: $textcolorDark;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-sizing: border-box;
+    &:hover {
+      color: $accent;
+      border: 1px solid $accent;
+      transition: all 0.5s ease-in;
+    }
+  }
+  &__item {
+    margin: 10px 0;
+    &:last-child {
+      margin: 0;
+    }
+    @media (min-width: 768px) {
+      margin: 0 40px 0 0;
+    }
+  }
+
+  &__text {
+    font-size: $fontsize + 2px;
+    letter-spacing: 0.03em;
+    @media (min-width: 768px) {
+      font-size: $fontsize;
+    }
+  }
+}

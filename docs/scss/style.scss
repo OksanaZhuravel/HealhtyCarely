@@ -1,0 +1,96 @@
+// @use 'sass:math';
+// @use 'sass:color';
+
+@import 'fonts';
+
+// @import 'node_modules/swiper/swiper-bundle';
+
+// USER VARIABLES SECTION
+$backgroundcolor: #ffffff;
+$accent: #4d77ff; // Accent Color
+$fontsize: 14px; // Body Font Size
+$textcolor: #696969; // Text Color
+$textcolorDark: #121212; // Text Color
+
+$lineheight: 20px; // Document Line Height
+$userfont: Manrope, sans-serif; // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Font Family
+$paddingGlobal: 0 100px;
+$padding: 100px;
+// GENERAL CSS SETTINGS
+
+::placeholder {
+  color: #666666;
+}
+
+::selection {
+  background-color: $accent;
+  color: #ffffff;
+}
+
+input,
+textarea {
+  outline: none;
+  &:focus:required:invalid {
+    border-color: $accent;
+  }
+  &:required:valid {
+    border-color: rgba($accent, 0.4);
+  }
+}
+
+.body {
+  width: 100%;
+  font-family: $userfont;
+  font-size: $fontsize;
+  font-weight: 500;
+  line-height: $lineheight;
+  color: $textcolor;
+  min-width: 320px;
+  // position: relative;
+  overflow-x: hidden;
+  max-width: 1440px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: $backgroundcolor;
+  padding: 0 calc($padding / 5);
+  @media (min-width: 768px) {
+    padding: 0 calc($padding / 2);
+  }
+  @media (min-width: 1068px) {
+    padding: $paddingGlobal;
+  }
+  @media (min-width: 1441px) {
+    background-color: #edf1ff;
+  }
+  // & .about {
+  //   // padding-right: 0;
+  // }
+  &.touch {
+  }
+  &.mouse {
+  }
+}
+.visually-hidden:not(:focus):not(:active),
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+main {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@import './block/header';
+@import './block/logo';
+@import './block/menu';
+@import './block/nav';
+@import './block/user';
+@import './block/button';
+@import './block/about';
+@import './block/card';
+@import './block/step';

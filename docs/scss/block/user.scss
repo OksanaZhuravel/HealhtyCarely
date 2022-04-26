@@ -1,0 +1,50 @@
+.user {
+  align-items: center;
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: $accent;
+    &:hover {
+      box-shadow: inset 0 -15px 30px rgb(26 27 31 / 70%);
+      transition: all 0.5s ease-in;
+    }
+    @media (min-width: 768px) {
+      width: 97px;
+      height: 44px;
+    }
+  }
+  &__link {
+    text-decoration: none;
+  }
+  &__item {
+    margin: 10px 0;
+    &:last-child {
+      margin: 0;
+    }
+    @media (min-width: 768px) {
+      margin: 0 20px 0 0;
+    }
+  }
+  &__text {
+    font-size: $fontsize + 2px;
+    color: $textcolorDark;
+    letter-spacing: 0.03em;
+    &:hover {
+      color: $accent;
+      transition: color 0.5s ease-in;
+    }
+    &--button {
+      color: #ffffff;
+      &:hover {
+        color: #ffffff;
+      }
+    }
+    @media (min-width: 768px) {
+      font-size: $fontsize;
+    }
+  }
+}
