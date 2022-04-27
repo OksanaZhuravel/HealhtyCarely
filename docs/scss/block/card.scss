@@ -7,7 +7,7 @@
   border-radius: 10px;
   padding: 5px;
   box-sizing: border-box;
-  box-shadow: 0 10px 40px rgba(18, 18, 18, 0.1);
+  box-shadow: 0 -24px 34px rgba(199, 201, 217, 0.15);
   &:hover {
     transform: scale(1.1);
     transition: transform 2s ease-in;
@@ -19,15 +19,46 @@
     width: 144px;
     height: 178px;
     padding: 16px;
-    box-shadow: none;
+  }
+  &--search {
+    width: 202px;
+    height: 256px;
+    padding: 18px 30px;
+    gap: 20px;
+    box-shadow: -4px -10px 50px rgba(18, 18, 18, 0.1);
+
+    & .card__title,
+    & .card__text {
+      margin: 5px 0 0 14px;
+    }
+  }
+  &__wrap {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    &--text {
+      grid-template-columns: auto;
+      justify-self: flex-start;
+      & .card__title,
+      & .card__text {
+        margin: 0;
+      }
+    }
   }
   &__button {
     margin: 10px 0 0 0;
+    &.button--card-search {
+      margin: 0;
+    }
   }
   &__foto {
     width: 50px;
     height: 50px;
     object-fit: cover;
+    &--search {
+      grid-row: 1 / 3;
+      width: 46px;
+      height: 46px;
+    }
   }
   &__text {
     margin: 0;
@@ -44,5 +75,8 @@
     letter-spacing: 0.03em;
 
     color: $textcolorDark;
+    &--shadow {
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
   }
 }

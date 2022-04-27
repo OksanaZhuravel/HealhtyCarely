@@ -1,0 +1,127 @@
+.search {
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  display: grid;
+  align-content: stretch;
+  align-items: flex-start;
+  gap: 25px;
+  @media (min-width: 1068px) {
+    min-height: 670px;
+    grid-template-columns: 531px 1fr;
+    gap: 0;
+  }
+  &__info {
+    display: grid;
+    margin: 0;
+    @media (min-width: 768px) {
+      margin: 80px 0 0 0;
+    }
+  }
+  &__subtitle {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: $accent;
+  }
+  &__text {
+    margin: 0 0 16px 0;
+    max-width: 531px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+  &__title {
+    margin: 10px 0 26px 0;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: 0.015em;
+    color: $textcolorDark;
+    @media (min-width: 768px) {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__item {
+    margin: 14px 0;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: $textcolorDark;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    column-gap: 12px;
+    &::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-image: url('../img/step-list.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  &__button {
+    margin: 12px 0 0 0;
+  }
+
+  &__wrap {
+    display: grid;
+    position: relative;
+    z-index: 2;
+    background-color: $accent;
+    border-radius: 25px;
+    align-self: flex-end;
+    margin: 0;
+    box-sizing: border-box;
+    @media (min-width: 1068px) {
+      margin: 0 -117px 0 0;
+      border-radius: 0;
+      background-color: transparent;
+      &::after {
+        content: '';
+        display: block;
+        width: 676px;
+        height: 454px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-image: url('../img/step-ellipse.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: bottom right;
+        z-index: -1;
+      }
+    }
+  }
+  &__img {
+    max-width: 310px;
+    height: auto;
+    margin: 0;
+    display: block;
+    z-index: 3;
+    justify-self: flex-end;
+    @media (min-width: 768px) {
+      max-width: none;
+    }
+    @media (min-width: 1068px) {
+      margin: 0 0 0 234px;
+    }
+  }
+  &__inner {
+    bottom: 0;
+    right: 0;
+    order: -1;
+    @media (min-width: 768px) {
+      position: absolute;
+      bottom: 298px;
+      left: 133px;
+    }
+  }
+}
