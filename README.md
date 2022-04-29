@@ -26,4 +26,4 @@ Mobile first для экранов 320px.
 
 Tекст в html с помощью экранной типографики «Типограф»
 
-Опубликованный проект с помощью github по ссылке:
+Опубликованный проект с помощью github по ссылке: https://oksanazhuravel.github.io/HealhtyCarely/
