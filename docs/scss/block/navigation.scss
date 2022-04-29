@@ -1,0 +1,33 @@
+.navigation {
+  width: 100%;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: start;
+  align-items: start;
+  @media (min-width: 768px) {
+    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  &__link {
+    text-decoration: none;
+    color: $textcolorDark;
+
+    &:hover {
+      color: $accent;
+      transition: all 0.5s ease-in;
+    }
+  }
+
+  &__text {
+    min-width: 112px;
+    margin: 0 0 10px 0;
+    font-weight: 400;
+    letter-spacing: 0.015em;
+  }
+}

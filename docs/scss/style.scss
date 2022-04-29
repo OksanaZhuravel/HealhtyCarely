@@ -1,6 +1,3 @@
-// @use 'sass:math';
-// @use 'sass:color';
-
 @import 'fonts';
 
 @import 'node_modules/swiper/swiper-bundle';
@@ -24,12 +21,8 @@ $padding: 100px;
   color: #666666;
 }
 :root {
-  --swiper-theme-color: $textcolorDark;
+  --swiper-theme-color: #121212;
 }
-// ::selection {
-//   background-color: $accent;
-//   color: #ffffff;
-// }
 
 input,
 textarea {
@@ -50,7 +43,6 @@ textarea {
   line-height: $lineheight;
   color: $textcolor;
   min-width: 320px;
-  // position: relative;
   overflow-x: hidden;
   max-width: 1440px;
   margin: 0 auto;
@@ -65,11 +57,6 @@ textarea {
   }
   @media (min-width: 1441px) {
     background-color: #edf1ff;
-  }
-
-  &.touch {
-  }
-  &.mouse {
   }
 }
 .visually-hidden:not(:focus):not(:active),
@@ -93,9 +80,12 @@ main {
 @import './block/user';
 @import './block/button';
 @import './block/about';
-@import './block/card';
 @import './block/step';
 @import './block/search';
+@import './block/card';
 @import './block/shedule';
 @import './block/rating';
 @import './block/feedback';
+@import './block/footer';
+@import './block/social';
+@import './block/navigation';
