@@ -1,56 +1,116 @@
-// import fileinclude from "gulp-file-include";
-import fileinclude from 'gulp-file-include';
-import rigger from 'gulp-rigger';
-import webpHtmlNosvg from 'gulp-webp-html-nosvg';
-// import webpHtmlNosvgLv from 'gulp-webp-html-nosvg-lv';
-import versionNumber from 'gulp-version-number';
+// // import fileinclude from "gulp-file-include";
+// import fileinclude from 'gulp-file-include';
+// import rigger from 'gulp-rigger';
+// // import webpHtmlNosvg from 'gulp-webp-html-nosvg';
+// // import webpHtmlNosvgLv from 'gulp-webp-html-nosvg-lv';
+// import versionNumber from 'gulp-version-number';
 // import webpHtml from 'gulp-webp-html';
 // import webpFoHtml from 'gulp-webp-for-html';
 
+// export const html = () => {
+//   return (
+//     app.gulp
+//       .src(app.path.src.html)
+//       .pipe(
+//         app.plugins.plumber(
+//           app.plugins.notify.onError({
+//             title: 'HTML',
+//             message: 'Error: <%= error.message %>',
+//           })
+//         )
+//       )
+//       .pipe(rigger())
+//       .pipe(
+//         fileinclude(
+//           // { prefix: '@@', basepath: './src/html' }
+//           {
+//             prefix: '@@',
+//             basepath: '@file',
+//           }
+//         )
+//       )
+//       .pipe(app.plugins.replace(/@img\//g, 'img/'))
+//       // .pipe(app.plugins.if(app.isBuild, webpHtmlNosvg()))
+//       // .pipe(app.plugins.if(app.isBuild, webpHtmlNosvgLv()))
+//       .pipe(app.plugins.if(app.isBuild, webpFoHtml(['.jpg', '.png', '.gif '])))
+//       .pipe(webpHtml())
+//       .pipe(
+//         app.plugins.if(
+//           app.isBuild,
+//           versionNumber({
+//             value: '%DT%',
+//             append: {
+//               key: '_v',
+//               cover: 0,
+//               to: ['css', 'js'],
+//             },
+//             output: {
+//               file: 'gulp/version.json',
+//             },
+//           })
+//         )
+//       )
+//       .pipe(app.gulp.dest(app.path.build.html))
+//       .pipe(app.plugins.browsersync.stream())
+//   );
+// };
+
+import fileinclude from 'gulp-file-include';
+import rigger from 'gulp-rigger';
+import webpHtmlNosvg from 'gulp-webp-html-nosvg';
+import versionNumber from 'gulp-version-number';
+import htmlImgWrapper from 'gulp-html-img-wrapper';
+import webpHtmlSvg from 'gulp-webp-for-html';
+
 export const html = () => {
-  return (
-    app.gulp
-      .src(app.path.src.html)
-      .pipe(
-        app.plugins.plumber(
-          app.plugins.notify.onError({
-            title: 'HTML',
-            message: 'Error: <%= error.message %>',
-          })
-        )
+  return app.gulp
+    .src(app.path.src.html)
+    .pipe(
+      app.plugins.plumber(
+        app.plugins.notify.onError({
+          title: 'HTML',
+          message: 'Error: <%= error.message %>',
+        })
       )
-      .pipe(rigger())
-      .pipe(
-        fileinclude(
-          // { prefix: '@@', basepath: './src/html' }
-          {
-            prefix: '@@',
-            basepath: '@file',
-          }
-        )
+    )
+    .pipe(rigger())
+    .pipe(
+      fileinclude(
+        // { prefix: '@@', basepath: './src/html' }
+        {
+          prefix: '@@',
+          basepath: '@file',
+        }
       )
-      .pipe(app.plugins.replace(/@img\//g, 'img/'))
-      .pipe(app.plugins.if(app.isBuild, webpHtmlNosvg()))
-      // .pipe(app.plugins.if(app.isBuild, webpHtmlNosvgLv()))
-      // .pipe(app.plugins.if(app.isBuild, webpFoHtml(['.jpg', '.png', '.gif '])))
-      // .pipe(webpHtml())
-      .pipe(
-        app.plugins.if(
-          app.isBuild,
-          versionNumber({
-            value: '%DT%',
-            append: {
-              key: '_v',
-              cover: 0,
-              to: ['css', 'js'],
-            },
-            output: {
-              file: 'gulp/version.json',
-            },
-          })
-        )
+    )
+    .pipe(app.plugins.replace(/@img\//g, 'img/'))
+    .pipe(app.plugins.if(app.isBuild, webpHtmlNosvg()))
+    .pipe(app.plugins.if(app.isBuild, webpHtmlSvg(['.jpg', '.png'])))
+    .pipe(
+      app.plugins.if(
+        app.isBuild,
+        htmlImgWrapper({
+          logger: true, // false for not showing message with amount of wrapped img tags for each file
+          extensions: ['.jpg', '.png', '.jpeg'], // write your own extensions pack (case insensitive)
+        })
       )
-      .pipe(app.gulp.dest(app.path.build.html))
-      .pipe(app.plugins.browsersync.stream())
-  );
+    )
+    .pipe(
+      app.plugins.if(
+        app.isBuild,
+        versionNumber({
+          value: '%DT%',
+          append: {
+            key: '_v',
+            cover: 0,
+            to: ['css', 'js'],
+          },
+          output: {
+            file: 'gulp/version.json',
+          },
+        })
+      )
+    )
+    .pipe(app.gulp.dest(app.path.build.html))
+    .pipe(app.plugins.browsersync.stream());
 };

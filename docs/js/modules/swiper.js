@@ -1,7 +1,7 @@
 import Swiper from 'swiper/bundle';
 
 export function isSwaper() {
-  new Swiper('.slader', {
+  new Swiper('.feedback__slader', {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',

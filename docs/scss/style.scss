@@ -3,7 +3,7 @@
 
 @import 'fonts';
 
-// @import 'node_modules/swiper/swiper-bundle';
+@import 'node_modules/swiper/swiper-bundle';
 
 // USER VARIABLES SECTION
 $backgroundcolor: #ffffff;
@@ -17,16 +17,19 @@ $userfont: Manrope, sans-serif; // User Font Family
 $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Font Family
 $paddingGlobal: 0 100px;
 $padding: 100px;
+
 // GENERAL CSS SETTINGS
 
 ::placeholder {
   color: #666666;
 }
-
-::selection {
-  background-color: $accent;
-  color: #ffffff;
+:root {
+  --swiper-theme-color: $textcolorDark;
 }
+// ::selection {
+//   background-color: $accent;
+//   color: #ffffff;
+// }
 
 input,
 textarea {
@@ -63,9 +66,7 @@ textarea {
   @media (min-width: 1441px) {
     background-color: #edf1ff;
   }
-  // & .about {
-  //   // padding-right: 0;
-  // }
+
   &.touch {
   }
   &.mouse {
@@ -97,3 +98,4 @@ main {
 @import './block/search';
 @import './block/shedule';
 @import './block/rating';
+@import './block/feedback';
